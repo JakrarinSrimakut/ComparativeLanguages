@@ -1,0 +1,7 @@
+Ocaml Define a function to reverse a list. You may use tail-recursion or use List.fold_left as a "one-linear"
+
+val revers: 'a list -> 'a list
+#reverse [1;2;3;4]
+-:int list = [4;3;2;1]
+
+

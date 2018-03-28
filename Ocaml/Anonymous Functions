@@ -1,0 +1,10 @@
+fun x y -> if x > y then x else y
+
+(fun x y -> if x > y then x else y) 4 5;; (*pass values*)
+
+let max = fun x y -> if x > y then x else y;;
+
+
+(*Polymorphic function-the ability for functions to take in any kind of datatype*)
+let min x y = if x < y then x else y;;
+

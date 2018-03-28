@@ -1,0 +1,33 @@
+-bash-24$ ./sneak.peek.sh cmps112-2017q4-midterm.tt
+#!/bin/sh
+# $Id: sneak.peek.sh,v 1.3 2016-10-31 12:43:09-07 - - $
+cat $0
+cat $* | tr A-Z a-z | tr -c '[:alnum:]' '\n' | sort | uniq | fmt
+
+0 00 07 1 10 11 112 12 12pt 15 16 1pt 2 20 2017 2017q4 27 2pt 3 3pt 4
+4pt 5 54 6 60 7 71 8 9 a algol all allocate alonzo alpha an and answer
+answers any apply are argument as assuming auxiliary b backus basic be
+beta bnf books bool bound but by c caar cadr calculator calculus calling
+
+casting cdar cddr choice church class cmps cmps112 cobol code collatz
+column computer conjectures cons considered converges conversions correct
+d dangling deducted define defined definition definitions delim design
+dijkstra do don donald dynamic each edsger else elsewhere email en ending
+enter entries eq erwise eta even evenlen eventually examboxes expression
+fac fall false fib fill filter final first fold foldl following for form
+fortran free from fun function functions general ger given go grace
+harmful head higher hopper how id if in incorrect indicates inner int
+inte integer integers internet into is it java john jpgs kinds knuth
+lambda language languages later leaks left length let letter library
+link lisp list log m map math mathematical max mccarthy memory messy
+midterm missing mm much multiple n name naur negative neither no node
+nodes none nor not notes number o ocaml odd of on only or order oth outer
+page pe phone points polymorphism positive possible presumed previous
+produces programming provided ps pure question re rec recursive reduced
+references repeatedly replaced represents result returns rev reverse
+reverses risk running said same scheme scratch signatures sneaky space
+spaces specific specification stack starting statement states static
+strong sub sum sumf sup swer system t table tail test that the them then
+time to total tricks true turn two type types u unreadable unsafe use
+used uses using v val value version want was weak what when which will
+with without work worth write written wrong x y yesterday you your z

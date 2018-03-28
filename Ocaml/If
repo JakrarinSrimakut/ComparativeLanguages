@@ -1,0 +1,58 @@
+if boolean-condition then expression
+
+if boolean-condition then expression else other-expression
+
+let i = 9 and j = 10;;
+
+-IF
+
+if i < j && true then
+    (
+       let x = 10 in
+         x + 2
+    )
+  else
+    begin
+      let f = 3 in
+	f+4 
+    end ;;
+
+if i < j && true then
+    (
+       if j > i then 5 else 6
+    )
+  else
+    begin
+      let f = 3 in
+	f+4 
+    end ;;
+
+let x = 4 and y = 4;;
+
+x == y;;
+	(*true*)
+x <> y;;
+	(*false*)
+
+let s = "string" and u = "string";;
+
+s = u;;
+	(*true deep-value string are the same*)
+s != u;;
+	(*true shallow- s and u are different string variable*)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

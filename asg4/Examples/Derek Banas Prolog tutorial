@@ -1,0 +1,151 @@
+"If something goes wrong save filename.pl then load database in gprolog"
+?- [filename]. "load database"
+
+-------------------------------------------------------------------
+
+FACT
+loves(romeo, juliet). "fact, loves is a predicate, romeo and juliet"
+
+-group your facts together
+
+-------------------------------------------------------------------
+
+RULE
+"Left side is true if right side is true."
+loves(juliet, romeo) :- loves(romeo, juliet).
+
+-------------------------------------------------------------------
+
+Variable
+loves(romeo, X). "variable starts with uppercase.This finds any value 
+that goes with romeo."
+
+-The value for the variable goes away after query(no more ? after ; 
+through the list)
+-------------------------------------------------------------------
+Ex: 
+database:
+parent(albert, bob).
+parent(bob,carl).
+
+gprolog:
+"find grandchild"
+parent(albert,X),
+parent(X,Y).
+-------------------------------------------------------------------
+"find same parent"
+parent(X, carl),
+  parent(X, charlie).
+-------------------------------------------------------------------
+"return grandparents of albert"
+get_grandchild:- 
+  parent(albert,X), 
+  parent(X,Y), 
+  write('Alberts grandchild is '),
+  write(Y), nl.
+-------------------------------------------------------------------
+"check for carl's and charlie's parent then find that parent's parent"
+get_grandparent :-
+ parent(X, carl),
+ parent(X, charlie),
+ parent(Y, X),
+ format('~w ~s grandparent ~n',[Y, "is the"]).﻿
+
+"~w variable Y
+~s transpose string "is the" to ~s spot
+~n newline"
+-------------------------------------------------------------------
+"find parent of carl then find the brother of that parent"
+parent(X, carl), brother(X, Y).
+-------------------------------------------------------------------
+"Find grandparent Y with grandchild X input"
+grand_parent(X, Y) :-
+  parent(Z, X),
+  parent(Y, Z).
+-------------------------------------------------------------------
+"RULE: blushes(X) is true if human(X) is true. human(x) is true if FACT human(X) exist. derek is passed in to X and fact is found"
+blushes(X) :- human(X).
+human(derek).
+-------------------------------------------------------------------
+stabs(tybalt,mercutio,sword).
+hates(romeo, X) :- stabs(X,mercutio,sword).
+
+?- hates(romeo, X) "Query X to find the atom of the fact"
+?- hates(romeo, tybalt) "Find out if tybalt exist as atom for stab
+-------------------------------------------------------------------
+"anonnymous variable"
+?- male(_) "return true for any male facts without any info" 
+-------------------------------------------------------------------
+IF
+what_grade(5) :-
+  write('Go to kindergarden').
+
+what_grade(6) :-
+  write('Go to 1st Grade').
+
+what_grade(Other) :-
+  Grade is Other - 5,  "Grade=Other-5"
+  format('Go to grade ~w', [Grade]).
+
+-------------------------------------------------------------------
+
+COMPLEX TERMS & STRUCTURE (object made up of many other objects)
+has(albert, olive).
+owns(albert, pet(cat, olive)). "Beter then above more info on fact"
+
+customer(tom, smith, 20.55).
+customer(sally, smith, 120.55).
+
+?- customer(sally, _, Bal). "ignore last name put balance into Bal
+-------------------------------------------------------------------
+get_cust_bal(FName, LName) :-
+  customer(FName, LName, Bal),
+  write(FName), tab(1), "tab(1) - 1 space"
+  format('~w owes us $~2f ~n', [LName, Bal]). "$~2f allows for 2 decimal float only"
+
+?- get_cust_bal(sally, smith). "query for sally smith fact and if true run other commands in it"
+-------------------------------------------------------------------
+"Determine vertical or horizontal"
+vertical(line(point(X, Y), point(X, Y2))).
+horizontal(line(point(X, Y), point(X2, Y))).
+
+?- vertical(line(point(5, 10), point(5, 20))). "yes it's vertical"
+?- vertical(line(point(5, 10), point(6, 20))). "no, not vertical"
+?- vertical(line(point(5, 10), point(X, 20))). "find variable to make it vertical X=5"
+?- vertical(line(point(5, 10), X)). "find variables fact to make it vertical vertical X=point(5,_)"
+
+------------------------------------------------------------------
+
+COMPARE VALUES
+?- alice = alice.
+yes
+
+?- 'alice' = alice.
+yes
+
+?- \+ (alice = albert). "\+ not equal"
+yes
+
+?- 3>15.
+no
+
+?- 3>=15.
+no
+
+?- 3=<15.
+yes
+
+?- W=alice. 
+
+?-Rand1 = Rand2.
+Rand2=Rand1
+
+?-rich(money, X) = rich(Y, no_debt).
+X=no_debt
+Y=money
+
+------------------------------------------------------------------
+
+LISTING
+Input predicate in listing outputs a list of a facts
+

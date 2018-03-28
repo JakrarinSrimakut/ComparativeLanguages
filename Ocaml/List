@@ -1,0 +1,22 @@
+Lists must be uniform in their type ("homogeneous")
+Lists are immutable ( we can't change them)
+List operations are numerous:
+
+
+let x = ['a';'b'];;
+
+
+
+let y = 'c'::x;; (* add an element on to a list *)
+
+
+
+let z=x@y;; (* appending lists *)
+
+
+
+List.hd x;; (* head: first element of a list *)
+
+
+
+List.tl x;; (*the tail or rest of a list*)

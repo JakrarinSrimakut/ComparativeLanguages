@@ -1,0 +1,28 @@
+iter
+
+let ls = ["UK"; "Libya"; "Italy"; "Egypt"];;
+
+List.iter (fun x -> let l = String.length x in print_int l; print_newline()) ls;;
+
+
+map
+
+List.map ( fun x -> let l = String.length x in l) ls;;
+
+
+
+mapi
+
+List.mapi ( fun i x -> i) ls;;
+
+
+
+fold_left we move from left to right accumalating the result to be added to next element
+
+List.fold_left ( fun x y -> x + y) 0 [1; 3; 5 ;7];;
+
+
+
+fold_right  we move from right to left accumalating the result to be added to next element
+
+List.fold_right ( fun x y -> x + y) [1; 3; 5 ;7] 0;;

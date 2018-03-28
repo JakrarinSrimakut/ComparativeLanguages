@@ -1,0 +1,49 @@
+(*Set rec in front of function name to use recursion*)
+
+let rec fact n =
+  if n==1 then
+    1
+  else n*fact(n-1)
+;;
+
+
+
+let rec fibonacci_1 n =
+if n<2 then
+  1
+else
+  fibonacci_1 (n-1) + fibonacci_1 (n-2)
+;;
+
+
+
+let rec fibonacci_2 x =
+match x with
+   0 -> 1
+ | 1 -> 1
+ | _ -> fibonacci_2 (x-1) + fibonacci_2 (x-2)
+;;
+
+
+
+
+let rec fibonacci_3 = function
+   0 -> 1
+ | 1 -> 1
+ | x -> fibonacci_3 (x-1) + fibonacci_3 (x-2)
+;;
+
+
+
+let rec fun1 x =
+	match x with
+	   0 -> "Zero"
+	 | _ -> "fun2 x
+and
+  fun2 y =
+	match y with
+	   1 -> "One"
+	 | _ -> "fun1 (y-1)
+
+;;
+

@@ -1,0 +1,9 @@
+let <name > <parameter> = <expression> ;;
+
+
+
+let max x y = if x > y then x else y;;
+
+max 5 6;;
+
+*(functions can be passed in paramters and return functions*)

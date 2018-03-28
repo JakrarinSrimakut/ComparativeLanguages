@@ -1,0 +1,32 @@
+(*Tuple pass 1 variable(structure) instead multiple variables. Order is important for tuple (42, "hello", true)*)
+
+let max a b = if a > b then a else b;;
+
+let max(a,b) = if a > b then a else b;;
+
+
+
+(*print_int,print_newline and print_string are functions from modules to print*)
+
+
+
+let my_fun (i,s,b) = 
+if i > 10 then print_int i 
+else 
+  if s = "test" then print_string s 
+  else 
+    if b then print_string "true";;
+
+
+
+let _ = my_fun (44,"hi",true) in ();; (*underscore means I don't care about the return value get rid of it*)
+
+
+
+let fst_of_3tuple (a,b,c) = a;; (*return 1st element*)
+
+
+
+let my_tuple = (44,"hi",true);;(*my_tuple contains a tuple with 3 elements*) 
+
+my_fun my_tupple;

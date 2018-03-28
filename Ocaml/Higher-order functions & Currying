@@ -1,0 +1,23 @@
+(*Higer-order - functions that take other functions as a parameter*)
+
+
+let my_function f x y = f x y;;(*my_function will take a function as parameter with x and y as the attributes for that function*)
+
+let max = fun x y -> if x > y then x else y;;(*annonymous function name max*)
+
+my_function (fun x y -> if x > y then x else y) 5 6;;
+
+my_function max 5 6;;
+
+
+
+(*function with multiple arguments transfrom into a chaine of other functions that only take 1 argument*)
+
+let multiply x y = x * y;;
+
+multiply 5 6;;
+(multiply 5) 6;;(*Currying occur for the function multiply 5 6 like this in the background*)
+
+let multiply5 = multiply 5;;
+
+multiply5 6;;

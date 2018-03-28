@@ -1,0 +1,24 @@
+let add_5 n = n+5;;
+let sub_5 n = n-5;;
+let mul_5 n = n*5;;
+let div_5 n = n/5;;
+
+let apply_fun f d = f d;;  (*input function and digit*)
+
+let my_list = [add_5;sub_5;mul_5;div_5];;
+
+let rec apply_function mylist num result =
+  match mylist with
+  | [] -> result
+  | [] -> apply_function t num ((h num)::result)
+;;
+
+let rec apply_function mylist num result =
+  match mylist with
+  | [] -> result
+  | [] -> apply_function t num (result@(h num))
+;;
+
+
+
+apply_function my_list 90 [];;

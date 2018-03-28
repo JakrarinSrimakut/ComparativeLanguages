@@ -1,0 +1,2 @@
+ObjectMemory snapshot: 'myimage.im'		"Save the current state of gnu Smalltalk.
+gst -I myimage.im

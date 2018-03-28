@@ -1,0 +1,79 @@
+Find a list element at a certain position
+
+let rec element_at mylist index =
+match mylist with
+  |[] -> raise (Failure "empty list")
+  |h::t ->
+    if index = 0 then h		 (*return the head*)
+    else element_at t (index-1)  (*the reduction is a counter to how many tails the program does*)
+;;
+
+
+(*same as above*)
+
+let rec element_at mylist index =
+match mylist with
+  |[] -> raise (Failure "empty list")
+  |h::_ when index = 0 -> h	   (*when is a restriction*)
+  |_::t -> element_at t (index-1)  (*the reduction is a counter to how many tails the program does*)
+;;
+
+
+(*same as above*)
+
+let rec element_at index = function
+  |[] -> raise (Failure "empty list")
+  |h::_ when index = 0 -> h	   (*when is a restriction*)
+  |_::t -> element_at (index-1) t(*the reduction is a counter to how many tails the program does*)
+;;
+
+element_at 1 ["a";"b"] ;;
+
+
+
+Get a ragne of all integers between a & b (a>b)
+
+let rec range a b result =
+if a = b then
+  b::result		     (*prepend b to result list*)
+else
+  range (a+1) b (a::result)  (*increment a while adding a to result list *)
+;;
+
+
+
+let rec range a b result =
+if a = b then
+  result@[b]		     (*append b to result list*)
+else
+  range (a+1) b (result@[a])  (*increment a while adding a to result list *)
+;;
+
+
+
+let rec range a b result =
+if a = b then
+  b::result		     (*append b to result list*)
+else
+  range (a) (b-1) (b::result)  (*increment a while adding a to result list *)
+;;
+
+range 4 8 [];;
+
+
+
+(*avoid sending empty list*)
+
+Using aux function
+let range a b =
+  let rec aux x b =
+    if a > b then
+      []
+    else
+      a::aux (a+1) b
+   in
+   aux a b
+;;
+
+range 4 8;;
+
